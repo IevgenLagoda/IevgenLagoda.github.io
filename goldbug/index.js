@@ -16,18 +16,18 @@ class Player {
 
 class GameMap {
   constructor(paddingX, paddingY) {
-    this.blockSize = 40;
+    this.blockSize = 50;
     this.paddingX = paddingX;
     this.paddingY = paddingY;
     this.map_ = [
-      [1, 2, 2],
-      [1, 0, 3],
-      [1, 3, 4]
+      [1, 1, 1, 1, 1, 1, 1],
+      [1, 2, 2, 2, 2, 2, 1],
+      [1, 2, 0, 1, 0, 2, 1],
+      [1, 1, 1, 1, 1, 2, 1],
+      [1, 2, 0, 1, 0, 2, 1],
+      [1, 2, 2, 2, 2, 2, 1],
+      [1, 1, 1, 1, 1, 1, 1],
     ];
-    this.size = {
-      x: this.map_.lengt,
-      y: this.map_[0].lengt
-    };
   }
 
   /**
@@ -43,29 +43,28 @@ class GameMap {
    * @param {Number} type
    */
   drawBlock(x, y, type) {
-    let color = "blue";
+    let fill = "water";
     switch (type) {
       case 0:
-        color = "blue";
+        fill = "water";
         break;
       case 1:
-        color = "green";
+        fill = "grass";
         break;
       case 2:
-        color = "grey";
+        fill = "wall";
         break;
       case 3:
-        color = "gold";
+        fill = "key";
         break;
       case 4:
-        color = "red";
+        fill = "door";
         break;
     }
-    ctx.fillStyle = color;
+    const img = document.getElementById(fill);
     let startX = this.paddingX + y * this.blockSize;
     let startY = this.paddingY + x * this.blockSize;
-
-    ctx.fillRect(startX, startY, this.blockSize, this.blockSize);
+    ctx.drawImage(img, startX, startY, this.blockSize, this.blockSize);
   }
 
   draw() {
@@ -78,10 +77,7 @@ class GameMap {
 }
 
 class Game {
-  initCanvas_() {
-    ctx.width = "640";
-    ctx.height = "480";
-  }
+  initCanvas_() {}
   constructor() {
     // Global
     this.gold = 0;
