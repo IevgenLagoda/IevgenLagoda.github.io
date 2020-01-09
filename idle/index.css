@@ -1,0 +1,46 @@
+body {
+  background: beige;
+}
+
+.btn {
+  border: white;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px;
+  width: 240px;
+}
+.btnBuy {
+  background: darkgreen;
+}
+.btnUpg {
+  background: indigo;
+}
+.btnDis {
+  background: gray;
+}
+
+.coin {
+  background: gold;
+  border: 1px solid white;
+  border-radius: 50%;
+  display: inline-block;
+  height: 5px;
+  margin-left: 2px;
+  padding: 2px;
+  width: 5px;
+}
+
+.drawer {
+  display: flex;
+}
+.column {
+  align-items: center;
+  background: lightblue;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+}
